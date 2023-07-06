@@ -2,20 +2,29 @@ version: '3'
 services:
   svc:
     # build: app
+    container_name: svc
     image: registry-01.vsfi.org/beer-svc
     environment:
       - DATABASE_URL=postgres://root@db:26257/beer?sslmode=disable
     ports:
       - 8080:8080
+    depends_on:
+      db:
+        condition: service_healthy
 
   admin:
     # build: admin
+    container_name: admin
     image: registry-01.vsfi.org/beer-admin
     ports:
       - 5000:5000
+    depends_on:
+      db:
+        condition: service_healthy
 
   db:
     restart: always
+    container_name: db
     image: registry-01.vsfi.org/cockroachdb/cockroach:v22.2.2
     command: 'start-single-node --insecure'
     environment:
