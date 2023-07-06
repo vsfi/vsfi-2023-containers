@@ -48,3 +48,10 @@ docker compose down -v
  ⠿ Volume vsfi-2023-containers_data      Removed       0.0s
  ⠿ Network vsfi-2023-containers_default  Removed       0.3s
 ```
+
+## Usefull links
+* Docker Engine overview - [link](https://docs.docker.com/engine/)
+* How to install docker compose plugin - [link](https://docs.docker.com/compose/install/linux/)
+* Docker compose manual - [link](https://docs.docker.com/compose)
+* Global registry with docker images - [link](https://hub.docker.com/) 
+* Also see [link](https://helloartsy.com/wp-content/uploads/kids/cats/how-to-draw-a-cat-in-a-box/how-to-draw-a-cat-in-a-box-step-6.jpg)
