@@ -10,8 +10,9 @@ Run with docker compose
 ```
 docker compose up -d 
 
-[+] Running 4/4
+[+] Running 5/5
  ⠿ Network vsfi-2023-containers_default  Created        0.1s
+ ⠿ Volume "vsfi-2023-containers_data"    Created        0.1s
  ⠿ Container db                          Healthy        0.7s
  ⠿ Container svc                         Started        0.6s
  ⠿ Container admin                       Started        0.6s
@@ -40,4 +41,10 @@ docker compose down
 Stop services and remove data
 ```
 docker compose down -v
+[+] Running 5/5
+ ⠿ Container admin                       Removed      10.3s
+ ⠿ Container svc                         Removed       0.2s
+ ⠿ Container db                          Removed      10.2s
+ ⠿ Volume vsfi-2023-containers_data      Removed       0.0s
+ ⠿ Network vsfi-2023-containers_default  Removed       0.3s
 ```
