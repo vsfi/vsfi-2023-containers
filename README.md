@@ -25,3 +25,19 @@ admin               "python3 app.py"         admin    running             0.0.0.
 db                  "/cockroach/cockroac…"   db       running (healthy)   8080/tcp, 26257/tcp
 svc                 "/app/beer"              svc      running             0.0.0.0:8080->8080/tcp, :::8080->8080/tcp
 ```
+
+## Stop
+Stop services
+```
+docker compose down
+[+] Running 4/4
+ ⠿ Container admin                       Removed      10.3s
+ ⠿ Container svc                         Removed       0.3s
+ ⠿ Container db                          Removed      10.2s
+ ⠿ Network vsfi-2023-containers_default  Removed       0.3s
+```
+
+Stop services and remove data
+```
+docker compose down -v
+```
