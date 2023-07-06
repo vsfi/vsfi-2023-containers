@@ -22,7 +22,7 @@ def queue():
     for row in rows:
         print(row)
         queue.append(dict(row))
-    return render_template("queue.html", queue=queue)
+    return render_template("queue.html", queue=queue, team_name=os.getenv("TEAM", "vsfi"))
 
 
 @app.route("/status/<_id>")

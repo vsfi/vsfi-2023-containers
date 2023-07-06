@@ -1,7 +1,7 @@
 version: '3'
 services:
   svc:
-    # build: app
+    build: app
     container_name: svc
     image: registry-01.vsfi.org/beer-svc
     environment:
@@ -13,7 +13,7 @@ services:
         condition: service_healthy
 
   admin:
-    # build: admin
+    build: admin
     container_name: admin
     image: registry-01.vsfi.org/beer-admin
     ports:

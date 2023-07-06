@@ -17,12 +17,21 @@ var db, _ = IntDatabase()
 type Page struct {
 	Name     string
 	Response string
+	TeamName string
+}
+
+func GetEnvDefault(env, defaults string) string {
+	variable := os.Getenv(env)
+	if variable == "" {
+		return defaults
+	}
+	return variable
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	var name, _ = os.Hostname()
+	p := Page{TeamName: GetEnvDefault("TEAM", "vsfi")}
 	tmpl := template.Must(template.ParseFiles("templates/create.html"))
-	tmpl.Execute(w, name)
+	tmpl.Execute(w, p)
 }
 
 func createHandler(w http.ResponseWriter, r *http.Request) {
@@ -36,7 +45,7 @@ func createHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 
-	p := Page{Name: name, Response: "Your ticket has been accepted! Spasibo for choose our service!"}
+	p := Page{Name: name, Response: "Your ticket has been accepted! Spasibo for choose our service!", TeamName: os.Getenv("TEAM")}
 
 	tmpl := template.Must(template.ParseFiles("templates/create.html"))
 	tmpl.Execute(w, p)

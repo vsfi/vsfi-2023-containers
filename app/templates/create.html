@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+  <style>
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      text-align: center;
+  }
+  </style>
+</head>
+
 <body>
   <div style="margin:auto;width:50%;">
     <h2>Valentin & Grishin Cold &#127866; Service </h2>
@@ -12,11 +24,14 @@
       <input type="number" id="count" name="count" min="1" max="5"><br><br>
       <input type="submit" value="Submit">
     </form>
-    {{ if .Response }}
+    {{if .Response }}
     <p>{{ .Response }}</p>
     <a href="/queue?name={{ .Name }}">Your tickets</a>
-    {{ end }}
+    {{end}}
   </div>
+  <footer>
+    Deployed by {{ .TeamName }}
+  </footer>
 </body>
 
 </html>
