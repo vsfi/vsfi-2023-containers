@@ -1,0 +1,15 @@
+<html>
+
+<body>
+    <div style="margin:auto;width:50%;">
+        <h2>Valentin & Grishin Cold &#127866; Service </h2>
+
+        <ul>
+            {{range .}}
+            <li>status: {{ .Status }} count: {{.Count}} date: {{.CreatedAt.Format "Jan 02, 2006 15:04:05 UTC"}}</li>
+            {{end}}
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<html>
+
+<body>
+    <div style="margin:auto;width:50%;">
+        <h2>Valentin & Grishin Cold &#127866; Service</h2>
+        <h2>Admin Panel</h2>
+
+        <ul>
+            {% for row in queue %}
+            <li>name: {{row.name}} count: {{row.count}} <a href="/status/{{ row.id }}?state=inwork">in work</a> <a
+                    href="/status/{{ row.id }}?state=done">done</a> <a
+                    href="/status/{{ row.id }}?state=reject">reject</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>

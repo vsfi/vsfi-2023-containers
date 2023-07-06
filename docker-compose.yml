@@ -1,0 +1,28 @@
+version: '3'
+services:
+  svc:
+    # build: app
+    image: registry-01.vsfi.org/beer-svc
+    environment:
+      - DATABASE_URL=postgres://root@db:26257/beer?sslmode=disable
+    ports:
+      - 8080:8080
+
+  admin:
+    # build: admin
+    image: registry-01.vsfi.org/beer-admin
+    ports:
+      - 5000:5000
+
+  db:
+    restart: always
+    image: registry-01.vsfi.org/cockroachdb/cockroach:v22.2.2
+    command: 'start-single-node --insecure'
+    environment:
+      - COCKROACH_DATABASE=beer
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health?ready=1"]
+      interval: '10s'
+      timeout: '30s'
+      retries: 5
+      start_period: '20s'
